@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { WeatherService } from '../weather.service';
 import { debounceTime } from 'rxjs/operators';
 
@@ -12,14 +12,14 @@ import { debounceTime } from 'rxjs/operators';
 })
 export class CitySerachComponent implements OnInit {
 
-  search = new FormControl();
+  search = new FormControl('', [Validators.minLength(3)]);
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit(): void {
     this.search.valueChanges
     .pipe(debounceTime(1000))
     .subscribe((searchValue: string) => {
-      if(searchValue){
+      if(!this.search.invalid && searchValue){
         const userInput = searchValue.split(',').map(s => s.trim());
         this.weatherService.getCurrentWeather(
           userInput[0], 
