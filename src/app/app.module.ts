@@ -11,12 +11,19 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import 'hammerjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatCardModule } from '@angular/material/card'
+import { MatCardModule } from '@angular/material/card';
+
+import { CitySerachComponent } from './city-serach/city-serach.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CurrentWeatherComponent,  
+    CurrentWeatherComponent,    
+    CitySerachComponent,  
   ],
   imports: [
     BrowserModule,
@@ -25,7 +32,11 @@ import { MatCardModule } from '@angular/material/card'
     MatIconModule,
     MatToolbarModule,
     BrowserAnimationsModule,
-    MatCardModule
+    MatCardModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [WeatherService],
   bootstrap: [AppComponent]
