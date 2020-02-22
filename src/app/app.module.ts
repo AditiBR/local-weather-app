@@ -6,14 +6,26 @@ import { CurrentWeatherComponent } from './current-weather/current-weather.compo
 import { WeatherService } from './weather.service'
 import { HttpClientModule } from '@angular/common/http';
 
+import { MatButtonModule} from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import 'hammerjs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card'
+
 @NgModule({
   declarations: [
     AppComponent,
-    CurrentWeatherComponent,    
+    CurrentWeatherComponent,  
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,
+    MatIconModule,
+    MatToolbarModule,
+    BrowserAnimationsModule,
+    MatCardModule
   ],
   providers: [WeatherService],
   bootstrap: [AppComponent]
